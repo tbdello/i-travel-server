@@ -1,21 +1,22 @@
 const { assert } = require('chai');
 const Experience = require('../../lib/models/experience');
 
-describe.skip('Experience Model', () => {
+describe('Experience Model', () => {
     const experience = new Experience({
+        location: 'home'
     });
 
     it('should validate the experience model', () => {
         assert.equal(experience.validateSync(), undefined);
     });
 
-    it('checks required fields', () => {
-        const badUser = new Experience();
-        return badUser.validate()
+    it.skip('checks required fields', () => {
+        const badexp = new Experience();
+        return badexp.validate()
             .then(
                 () => { throw new Error('User validation error'); },
                 ({ errors }) => {
-                    assert.equal(errors.userName.kind, 'required');
+                    assert.equal(errors.location.kind, 'required');
                 }
             );
     });
