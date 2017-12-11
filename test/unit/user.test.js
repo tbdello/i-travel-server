@@ -2,10 +2,14 @@ const { assert } = require('chai');
 const User = require('../../lib/models/user');
 
 describe('User Model', () => {
-    const user = new User({
-        userName: 'Goat',
-        email: 'Goat@Goat.com',
-        experiences: '59eb914ffcd9df5be2d25d18'
+    let user = null;
+    before( ()=> {
+        user = new User({
+            userName: 'Goat',
+            email: 'Goat@Goat.com',
+            experiences: '59eb914ffcd9df5be2d25d18' 
+        });
+        user.generateHash('secret');
     });
 
     it('should validate the user model', () => {
@@ -19,6 +23,7 @@ describe('User Model', () => {
                 () => { throw new Error('User validation error');},
                 ({ errors }) => {
                     assert.equal(errors.userName.kind, 'required');
+                    assert.equal(errors.hash.kind, 'required');
                 }            
             );
     });

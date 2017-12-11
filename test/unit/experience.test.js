@@ -10,13 +10,14 @@ describe('Experience Model', () => {
         assert.equal(experience.validateSync(), undefined);
     });
 
-    it.skip('checks required fields', () => {
-        const badexp = new Experience();
-        return badexp.validate()
+    it('checks required fields', () => {
+        const badExp = new Experience();
+        return badExp.validate()
             .then(
-                () => { throw new Error('User validation error'); },
+                () => {throw new Error('User validation error');},
                 ({ errors }) => {
                     assert.equal(errors.location.kind, 'required');
+                    
                 }
             );
     });
