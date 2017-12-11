@@ -5,7 +5,7 @@ describe('User Model', () => {
     let user = null;
     before( ()=> {
         user = new User({
-            userName: 'Goat',
+            name: 'Goat',
             email: 'Goat@Goat.com',
             experiences: '59eb914ffcd9df5be2d25d18' 
         });
@@ -22,8 +22,9 @@ describe('User Model', () => {
             .then(
                 () => { throw new Error('User validation error');},
                 ({ errors }) => {
-                    assert.equal(errors.userName.kind, 'required');
+                    assert.equal(errors.name.kind, 'required');
                     assert.equal(errors.hash.kind, 'required');
+                    assert.equal(errors.email.kind, 'required');
                 }            
             );
     });

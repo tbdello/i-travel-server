@@ -16,8 +16,7 @@ describe('Experience Model', () => {
             .then(
                 () => {throw new Error('User validation error');},
                 ({ errors }) => {
-                    assert.equal(errors.location.kind, 'required');
-                    
+                    assert.equal(errors.location.kind, 'required'); 
                 }
             );
     });
