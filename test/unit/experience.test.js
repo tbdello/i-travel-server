@@ -5,7 +5,7 @@ describe.skip('Experience Model', () => {
     const experience = new Experience({
     });
 
-    it('should validate the user model', () => {
+    it('should validate the experience model', () => {
         assert.equal(experience.validateSync(), undefined);
     });
 
