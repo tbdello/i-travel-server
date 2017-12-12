@@ -1,9 +1,14 @@
 const http = require('http');
 const app = require('./lib/app');
 const connect = require('./lib/connect');
+require('dotenv').config();
 
-connect();
 
+
+const dbUri = process.env.MONGODB_URI;
+
+
+connect(dbUri);
 const server = http.createServer(app);
 const port = process.env.port || 3000;
 
