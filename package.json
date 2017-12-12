@@ -35,6 +35,8 @@
     "mocha": "mocha --recursive",
     "pretest": "npm run lint",
     "test": "npm run mocha --s",
+    "start": "node server.js",       
+    "dev": "nodemon server.js",
     "testU": "npm run mocha -- ./test/unit",
     "testE2E": "npm run mocha -- ./test/e2e"
   },
