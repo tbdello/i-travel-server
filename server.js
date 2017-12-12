@@ -5,7 +5,7 @@ require('dotenv').config();
 
 
 
-const dbUri = process.env.MONGODB_URI;
+const dbUri = process.env.MONGODB_URI || 'mongodb://heroku_m42p1sr7:hvv3kjhret48v6a56eor2v5mtu@ds137256.mlab.com:37256/heroku_m42p1sr7';
 
 
 connect(dbUri);
