@@ -11,7 +11,7 @@ describe('Experience API', () => {
 
     it('/POST a experience', () => {
         return request
-            .post('/api/exp')
+            .post('/api/experiences')
             .send(experience)
             .then(({ body }) => {
                 experience = body;
@@ -21,7 +21,7 @@ describe('Experience API', () => {
     });
 
     it('/Delete experience', () => {
-        const url = `/api/exp/${experience._id}`;
+        const url = `/api/experiences/${experience._id}`;
         return request.delete(url)
             .then(() => request.get(url))
             .then(
