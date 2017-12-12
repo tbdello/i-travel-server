@@ -3,7 +3,8 @@ const Experience = require('../../lib/models/experience');
 
 describe('Experience Model', () => {
     const experience = new Experience({
-        location: 'home'
+        location: 'home',
+        title: 'great'
     });
 
     it('should validate the experience model', () => {
