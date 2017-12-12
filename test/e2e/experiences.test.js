@@ -7,22 +7,21 @@ describe('Experience API', () => {
 
     beforeEach(() => db.drop());
 
-    let expense = { name: 'doughnuts', amount: 30 };
+    let experience = { location: 'doughnuts', tags: '30' };
 
     it('/POST a experience', () => {
         return request
             .post('/api/exp')
-            .send(expense)
+            .send(experience)
             .then(({ body }) => {
+                experience = body;
                 assert.isOk(body._id);
-                for (const key of ['name', 'url']) {
-                    assert.equal(body[key], expense[key]);
-                }
-                expense = body;
+                assert.equal(body.location, 'doughnuts');
             });
     });
+
     it('/Delete experience', () => {
-        const url = `/api/exp/${expense._id}`;
+        const url = `/api/exp/${experience._id}`;
         return request.delete(url)
             .then(() => request.get(url))
             .then(
