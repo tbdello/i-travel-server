@@ -36,4 +36,12 @@ describe('Auth API', () => {
             });
     });
 
+    it.only('should get back user id', () => {
+        return request.get('/api/auth/me').set('Authorization', testToken)
+            .then( ({ body }) => {
+                console.log(body.user);
+                assert.ok(body.user);
+            });
+    });
+
 });
