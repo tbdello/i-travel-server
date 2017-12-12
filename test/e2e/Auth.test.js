@@ -31,15 +31,13 @@ describe('Auth API', () => {
         return request.post('/api/auth/signin')
             .send({ email: 'Tasty-Testie', password:'secret' })
             .then( ({ body }) => {
-                console.log('res body is :', body);
                 assert.ok(body.token);
             });
     });
 
-    it.only('should get back user id', () => {
-        return request.get('/api/auth/me').set('Authorization', testToken)
+    it('should get back user id', () => {
+        return request.get('/api/auth/getuser').set('Authorization', testToken)
             .then( ({ body }) => {
-                console.log(body.user);
                 assert.ok(body.user);
             });
     });
