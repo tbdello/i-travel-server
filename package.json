@@ -37,7 +37,7 @@
     "lint": "eslint .",
     "mocha": "mocha --recursive",
     "pretest": "npm run lint",
-    "test": "npm run mocha",
+    "test": "npm run mocha --s",
     "testU": "npm run mocha -- ./test/unit",
     "testE2E": "npm run mocha -- ./test/e2e"
   },
