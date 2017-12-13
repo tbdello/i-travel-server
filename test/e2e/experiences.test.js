@@ -23,7 +23,7 @@ describe('Experience API', () => {
             .then(({ body }) => {
                 experience = body;
                 assert.isOk(body._id);
-                assert.equal(body.location, 'New York');
+                assert.equal(body.location, 'New York222');
                 
             });
     });
@@ -35,7 +35,6 @@ describe('Experience API', () => {
                 return request.get(`/api/experiences/${body._id}`);
             })
             .then( ({ body }) => {
-                console.log('we got back', body);
                 assert.equal( body.images[0].imageURI, 
                     'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg'
                 );
@@ -49,10 +48,9 @@ describe('Experience API', () => {
             .send(experience)
             .then(({ body })=> {
                 id = body._id;
-                console.log('id is', id);
-                return request.delete(`api/experiences/${id}`);
+                return request.delete(`/api/experiences/${id}`);
             })
-            .then(() => request.get(`api/experiences/${id}`))
+            .then(() => request.get(`/api/experiences/${id}`))
             .then(
                 () => { throw new Error('unexpected success response'); },
                 res => assert.equal(res.status, 404)
