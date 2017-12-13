@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 const Image = require('../../lib/models/image');
 
-describe.only('Image Model', () => {
+describe('Image Model', () => {
     const image = new Image({
         imageURI: 'home.vga'
     });
