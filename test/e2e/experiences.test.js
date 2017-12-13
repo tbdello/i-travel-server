@@ -14,7 +14,6 @@ describe('Experience API', () => {
                 image = body;
                 experience = { title: 'Best', location: 'New York222', images:[image._id] };
             });
-
     });
     it('/POST an experience', () => {
         return request
@@ -57,4 +56,22 @@ describe('Experience API', () => {
             );
     });
 
+    it('Posts Image id to experience', () => {
+        const testImage = { imageURI:'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg', caption: 'rock' };
+        return request.post('/api/experiences')
+            .send(experience)
+            .then(({ body })=> {
+                const savedExp = body;
+                return request.post(`/api/experiences/${body._id}/images`)
+                    .send(testImage)
+                    .then( ({ body }) => {
+                        assert.equal(body.caption, 'rock');
+                        return request.get(`/api/experiences/${savedExp._id}`);
+                    })
+                    .then( ({ body }) =>{
+                        assert.equal(body.images[0].caption, 'rock');
+                    });
+            });
+
+    });
 });
