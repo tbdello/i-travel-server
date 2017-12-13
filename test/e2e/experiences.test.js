@@ -72,6 +72,5 @@ describe('Experience API', () => {
                         assert.equal(body.images[0].caption, 'rock');
                     });
             });
-
     });
 });
