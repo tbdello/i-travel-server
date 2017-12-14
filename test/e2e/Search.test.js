@@ -11,7 +11,16 @@ describe('Search API', () => {
         { title: 'Best5', location: 'New5', },
         { title: 'Best6', location: 'New6', },
         { title: 'Best7', location: 'New7', },
-        { title: 'Best8', location: 'New8', }
+        { title: 'Best8', location: 'New8', },
+        { title: 'Best9', location: 'New9', },
+        { title: 'Best10', location: 'New10', },
+        { title: 'Best11', location: 'New11', },
+        { title: 'Best12', location: 'New12', },
+        { title: 'Best13', location: 'New13', },
+        { title: 'Best14', location: 'New14', },
+        { title: 'Best15', location: 'New15', },
+        { title: 'Best16', location: 'New16', },
+        { title: 'Best17', location: 'New17', }
     ];
    
     beforeEach(() => {
@@ -28,7 +37,7 @@ describe('Search API', () => {
     it('/search', () => {
         return request.get('/api/experiences/search')
             .then( ({ body }) => {
-                assert.equal( body.length, 5);
+                assert.equal( body.length, 16);
             });
     });
 
