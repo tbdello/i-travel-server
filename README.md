@@ -4,6 +4,10 @@ A Server to support the i-Travel app.
 
 An app that lets you explore the wide world of travel with pictures and stories from people who have traveled there. 
 
+## Requirements
+
+MongoDB, latest stable version of Node.js 
+
 ## Installation
 
 This supports an app , found at:
@@ -29,10 +33,6 @@ and then open a browser to: `http://localhost:3000/`
 1. Commit your changes: `git commit -am 'Add some feature'`
 1. Push to the branch: `git push origin my-new-feature`
 1. Submit a pull request 
-
-## History
-
-This was created over the course of one week by students of Alchemy Code Labs.
 
 ## Credits
 
