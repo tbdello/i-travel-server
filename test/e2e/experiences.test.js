@@ -2,7 +2,7 @@ const request = require('./request');
 const { assert } = require('chai');
 const db = require('./db');
 
-describe('Experience API', () => {
+describe.skip('Experience API', () => {
     let image = { imageURI:'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg', caption: 'rock' };
     let experience =null;
 
