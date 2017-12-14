@@ -10,13 +10,36 @@ MongoDB, latest stable version of Node.js
 
 ## Installation
 
+1. Install [Node.js](https://nodejs.org/en/).
+
+    ```
+    brew install node
+    ```
+
+2. Clone repository and change directory.
+
+    ```
+    git clone https://github.com/tbdello/i-travel-server 
+    ```
+
+3. Install dependencies.
+
+    ```
+    npm install
+    ```
+
+4. Create a `.env` file and add the following variables.
+
+    ```
+    NODE_ENV=production
+    MONGODB_URI='mongodb://localhost:(port that you want mongodb to run on)/test'
+    ```
+
 This supports an app , found at:
 
 https://github.com/tbdello/i-travel
 
-This app also requires npm modules, enter : `npm i`
-
-in the terminal before running. The default port is 3001.
+The default port is 3001.
 
 ## Usage
 
@@ -41,17 +64,3 @@ Created by: *Andrew Bodey, Maryus Martsyalius, Eli Speigel*
 ## License
 
 MIT
-
-## Consistency in the Code
-1. good: fn()  
-    bad: fn ()
-1. good: let b == 'str';
-   
-    bad: let b=='str';
-1. good: function((power, exp) => {
-        })
-        
-    bad: function((power, exp) =>{
-        })
-
-1. one line space between unlike items
