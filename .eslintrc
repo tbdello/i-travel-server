@@ -24,5 +24,10 @@
       "error",
       "always"
     ]
+  },
+  "parserOptions":{
+  "ecmaFeatures": {
+    "experimentalObjectRestSpread": true
+  }
   }
 }
