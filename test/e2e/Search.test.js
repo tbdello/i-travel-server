@@ -2,7 +2,7 @@ const request = require('./request');
 const { assert } = require('chai');
 const db = require('./db');
 
-describe('Search API', () => {
+describe.skip('Search API', () => {
     const expArr = [
         { title: 'Best1', location: 'New1', tags:['hard', 'soft'] },
         { title: 'Best2', location: 'New2', tags:['soft'] },
