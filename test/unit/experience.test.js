@@ -13,7 +13,8 @@ describe('Experience Model', () => {
 
     it('checks required fields', () => {
         const badExp = new Experience();
-        return badExp.validate()
+        return badExp
+            .validate()
             .then(
                 () => {throw new Error('User validation error');},
                 ({ errors }) => {

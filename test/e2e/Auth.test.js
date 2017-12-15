@@ -7,17 +7,17 @@ describe('Auth API', () => {
     beforeEach( () => db.drop());
     beforeEach( () => {
         return request.post('/api/auth/signup')
-            .send({name: 'Testie', email: 'Tasty-Testie' , password: 'secret'})
+            .send({name: 'Testing', email: 'Testing@test.com' , password: 'secret'})
             .then( ( {body} ) => testToken = body.token);
     });
-
 
     it('should sign up a new user and return a token', () => {
         assert.ok(testToken);
     });
 
-    it('cant sign up without password', () => {
-        return request.post('/api/auth/signup')
+    it('can not sign up without password', () => {
+        return request
+            .post('/api/auth/signup')
             .send({name: 'Testie', email: 'Tasty-Testie'})
             .then(
                 () => {throw new Error('Unexpected success which is bad');},
@@ -28,15 +28,18 @@ describe('Auth API', () => {
     });
 
     it('should sign in with the same credentials',() => {
-        return request.post('/api/auth/signin')
+        return request
+            .post('/api/auth/signin')
             .send({ email: 'Tasty-Testie', password:'secret' })
             .then( ({ body }) => {
                 assert.ok(body.token);
             });
     });
 
-    it('should get back user id', () => {
-        return request.get('/api/auth/getuser').set('Authorization', testToken)
+    it('should get back a user id', () => {
+        return request
+            .get('/api/auth/getuser')
+            .set('Authorization', testToken)
             .then( ({ body }) => {
                 assert.ok(body.user);
             });
