@@ -17,8 +17,6 @@
     { "name": "Opie",   "email": "opie@mail.com"   },
     { "name": "Patty",  "email": "patty@mail.com"  }
 ]
-
-
 ========================EXPERIENCES==================================
 [
     { "title": "Best1" , "location": "New1" , "tags":["hard", "soft"] },
@@ -32,16 +30,4 @@
     { "title": "Best9" , "location": "New9" , },
     { "title": "Best10", "location": "New10", },
 ]
-
 ========================PICTURES=====================================
-
-
-
-
-
-
-
-
-
-
-

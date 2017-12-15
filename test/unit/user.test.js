@@ -18,7 +18,8 @@ describe('User Model', () => {
     
     it('checks required fields', () => {
         const badUser = new User();
-        return badUser.validate()
+        return badUser
+            .validate()
             .then(
                 () => { throw new Error('User validation error');},
                 ({ errors }) => {

@@ -8,13 +8,15 @@ describe.skip('Experience API', () => {
 
     beforeEach(() =>{
         db.drop();
-        return request.post('/api/images/')
+        return request
+            .post('/api/images/')
             .send(image)
             .then( ({ body }) =>{
                 image = body;
                 experience = { title: 'Best', location: 'New York222', images:[image._id] };
             });
     });
+
     it('/POST an experience', () => {
         return request
             .post('/api/experiences')
@@ -28,7 +30,8 @@ describe.skip('Experience API', () => {
     });
 
     it('/ Gets and populates exp by id', () => {
-        return request.post('/api/experiences')
+        return request
+            .post('/api/experiences')
             .send(experience)
             .then(({ body })=> {
                 return request.get(`/api/experiences/${body._id}`);
@@ -43,7 +46,8 @@ describe.skip('Experience API', () => {
 
     it('/Delete experience', () => {
         let id = null;
-        return request.post('/api/experiences')
+        return request
+            .post('/api/experiences')
             .send(experience)
             .then(({ body })=> {
                 id = body._id;
@@ -58,7 +62,8 @@ describe.skip('Experience API', () => {
 
     it('Posts Image id to experience', () => {
         const testImage = { imageURI:'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg', caption: 'rock' };
-        return request.post('/api/experiences')
+        return request
+            .post('/api/experiences')
             .send(experience)
             .then(({ body })=> {
                 const savedExp = body;

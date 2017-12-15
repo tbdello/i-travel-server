@@ -35,35 +35,40 @@ describe.skip('Search API', () => {
     });
 
     it('/search', () => {
-        return request.get('/api/experiences/search')
+        return request
+            .get('/api/experiences/search')
             .then( ({ body }) => {
                 assert.equal( body.length, 16);
             });
     });
 
     it('/search with limit', () => {
-        return request.get('/api/experiences/search?limit=2')
+        return request
+            .get('/api/experiences/search?limit=2')
             .then(({ body }) => {
                 assert.equal(body.length, 2);
             });
     });
     
     it('/search by location', () => {
-        return request.get('/api/experiences/search?location=New1')
+        return request
+            .get('/api/experiences/search?location=New1')
             .then(({ body }) => {
                 assert.equal(body.length, 1);
             });
     });
 
     it('/search by tags', () => {
-        return request.get('/api/experiences/search?tag=hard')
+        return request
+            .get('/api/experiences/search?tag=hard')
             .then(({ body }) => {
                 assert.equal(body.length, 1);
             });
     });
 
     it('/search by tags', () => {
-        return request.get('/api/experiences/search?tag=soft')
+        return request
+            .get('/api/experiences/search?tag=soft')
             .then(({ body }) => {
                 assert.equal(body.length, 2);
             });

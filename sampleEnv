@@ -1,0 +1,4 @@
+MONGODB_URI='mongodb://localhost/test'
+AWS_KEY=   "aws key"
+AWS_SECRET=  "aws secret"
+S3_BUCKET=  "bucket name"
