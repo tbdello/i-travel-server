@@ -1,4 +1,4 @@
-========================USERS========================================
+//========================USERS========================================
 [
     { "name": "Andrew", "email": "andrew@mail.com" },
     { "name": "Beth",   "email": "beth@mail.com"   },
@@ -17,7 +17,7 @@
     { "name": "Opie",   "email": "opie@mail.com"   },
     { "name": "Patty",  "email": "patty@mail.com"  }
 ]
-========================EXPERIENCES==================================
+// ========================EXPERIENCES==================================
 [
     { "title": "Best1" , "location": "New1" , "tags":["hard", "soft"] },
     { "title": "Best2" , "location": "New2" , "tags":["soft"] },
@@ -30,4 +30,4 @@
     { "title": "Best9" , "location": "New9" , },
     { "title": "Best10", "location": "New10", },
 ]
-========================PICTURES=====================================
+// ========================PICTURES=====================================

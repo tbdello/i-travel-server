@@ -11,25 +11,20 @@ Sign up for AWS. Get the KEY, SECRET and make a bucket.
 
 ## Installation
 
-1. Install [Node.js](https://nodejs.org/en/).
 
-    ```
-    brew install node
-    ```
-
-2. Clone repository and change directory.
+1. Clone repository and change directory.
 
     ```
     git clone https://github.com/tbdello/i-travel-server 
     ```
 
-3. Install dependencies.
+1. Install dependencies.
 
     ```
     npm install
     ```
 
-4. Create a `.env` file and add the following variables. Inside of the () = you provide the vaiable
+1. Create a `.env` file and add the following variables. Inside of the () = you provide the vaiable
 
     ```
     NODE_ENV=production
