@@ -2,7 +2,9 @@ const request = require('./request');
 const { assert } = require('chai');
 const db = require('./db');
 
-describe.skip('Search API', () => {
+describe('Search API', () => {
+    let testToken = null;
+
     const expArr = [
         { title: 'Best1', location: 'New1', tags:['hard', 'soft'] },
         { title: 'Best2', location: 'New2', tags:['soft'] },
@@ -23,12 +25,21 @@ describe.skip('Search API', () => {
         { title: 'Best17', location: 'New17', }
     ];
    
+    beforeEach(() => db.drop());
+
     beforeEach(() => {
-        db.drop();
+        return request
+            .post('/api/auth/signup')
+            .send({ name: 'Testing', email: 'Testing@test.com', password: 'secret' })
+            .then(({ body }) => testToken = body.token);
+    });
+
+    beforeEach(() => {
         return Promise.all(
             expArr.map((exp) =>{
                 return request
                     .post('/api/experiences')
+                    .set('Authorization', testToken)
                     .send(exp);
             })
         );    
@@ -58,9 +69,9 @@ describe.skip('Search API', () => {
             });
     });
 
-    it('/search by tags', () => {
+    it('/search by both', () => {
         return request
-            .get('/api/experiences/search?tag=hard')
+            .get('/api/experiences/search?location=New1&&tag=hard')
             .then(({ body }) => {
                 assert.equal(body.length, 1);
             });
