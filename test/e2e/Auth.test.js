@@ -4,9 +4,12 @@ const db = require('./db');
 
 describe('Auth API', () => {
     let testToken = null;
+
     beforeEach( () => db.drop());
+    
     beforeEach( () => {
-        return request.post('/api/auth/signup')
+        return request
+            .post('/api/auth/signup')
             .send({name: 'Testing', email: 'Testing@test.com' , password: 'secret'})
             .then( ( {body} ) => testToken = body.token);
     });
@@ -18,7 +21,10 @@ describe('Auth API', () => {
     it('can not sign up without password', () => {
         return request
             .post('/api/auth/signup')
-            .send({name: 'Testie', email: 'Tasty-Testie'})
+            .send({
+                name: 'Testie',
+                email: 'Testing@test.com'
+            })
             .then(
                 () => {throw new Error('Unexpected success which is bad');},
                 err => {
@@ -30,7 +36,10 @@ describe('Auth API', () => {
     it('should sign in with the same credentials',() => {
         return request
             .post('/api/auth/signin')
-            .send({ email: 'Tasty-Testie', password:'secret' })
+            .send({
+                email: 'Testing@test.com',
+                password: 'secret'
+            })
             .then( ({ body }) => {
                 assert.ok(body.token);
             });
