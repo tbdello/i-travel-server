@@ -15,8 +15,6 @@ describe('Experience API', () => {
             .send({ name: 'Testing', email: 'Testing@test.com', password: 'secret' })
             .then(({ body }) => testToken = body.token);
     });
-
-    
     
     beforeEach(() =>{
         return request
@@ -29,7 +27,6 @@ describe('Experience API', () => {
             });
     });
     
-
     it('/POST an experience', () => {
         return request
             .post('/api/experiences')
@@ -38,8 +35,7 @@ describe('Experience API', () => {
             .then(({ body }) => {
                 experience = body;
                 assert.isOk(body._id);
-                assert.equal(body.location, 'New York222');
-                
+                assert.equal(body.location, 'New York222');   
             });
     });
 
@@ -58,7 +54,6 @@ describe('Experience API', () => {
             });
     });
 
-
     it('/Delete experience', () => {
         let id = null;
         return request
@@ -74,29 +69,5 @@ describe('Experience API', () => {
                 () => { throw new Error('unexpected success response'); },
                 res => assert.equal(res.status, 401)
             );
-    });
-
-    it.skip('Posts Image id to experience', () => {
-        const testImage = { 
-            imageURI:'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg',
-            caption: 'rock'
-        };
-        return request
-            .post('/api/experiences')
-            .set('Authorization', testToken)
-            .send(experience)
-            .then(({ body })=> {
-                const savedExp = body;
-                return request.post(`/api/experiences/${body._id}/images`)
-                    .set('Authorization', testToken)
-                    .send(testImage)
-                    .then( ({ body }) => {
-                        assert.equal(body.caption, 'rock');
-                        return request.get(`/api/experiences/${savedExp._id}`);
-                    })
-                    .then( ({ body }) =>{
-                        assert.equal(body.images[0].caption, 'rock');
-                    });
-            });
     });
 });
