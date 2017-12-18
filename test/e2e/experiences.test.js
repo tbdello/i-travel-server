@@ -76,6 +76,7 @@ describe('Experience API', () => {
             );
     });
 
+    // Should we be worried this is skipped?
     it.skip('Posts Image id to experience', () => {
         const testImage = { 
             imageURI:'http://i.dailymail.co.uk/i/pix/2016/09/06/11/37F60FD200000578-0-image-a-5_1473156426673.jpg',
