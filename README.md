@@ -1,5 +1,7 @@
 # I-Travel-server
 
+// Initial Commit for grading/feedback PR
+
 A Server to support the i-Travel app.
 
 An app that lets you explore the wide world of travel with pictures and stories from people who have traveled there. 
